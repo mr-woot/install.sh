@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 # # To get latest package lists
 # apt-get update
@@ -27,16 +27,16 @@
 
 ## Google App Engine SDK
 # Create an environment variable for the correct distribution
-export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+# export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
 # Add the Cloud SDK distribution URI as a package source
-echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
 # Import the Google Cloud Platform public key
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 # Update the package list and install the Cloud SDK
-sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+# sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 
 # ## Virtual-Box
 # apt-get install virtualbox -y
@@ -77,4 +77,8 @@ sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 
 # # Utilities
 # # apt-get install vim -y
-
+# ##Heroku Setup
+add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
+curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+apt-get update
+apt-get install heroku
